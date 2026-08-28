@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 264" role="img" aria-labelledby="title desc">
+  <title id="title">Profile placeholder</title>
+  <desc id="desc">Placeholder portrait for Shamel B. Ocampo</desc>
+  <rect width="220" height="264" fill="#f5f4f1"/>
+  <circle cx="110" cy="94" r="42" fill="#8a8780"/>
+  <path d="M42 242c5-48 31-76 68-76s63 28 68 76" fill="#1c2f4a"/>
+  <path d="M76 91c0-25 15-43 34-43s34 18 34 43c-9-9-20-13-34-13s-25 4-34 13Z" fill="#1c2f4a"/>
+</svg>
