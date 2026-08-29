@@ -1,9 +1,10 @@
-import { C } from "@/data";
+import { C } from "../../data";
+import styles from "./Footer.module.css";
 
 export default function Footer() {
   return (
     <footer
-      className="px-6 py-10 max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4"
+      className={`${styles.footer} px-6 py-10 max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4`}
       style={{ borderTop: `1px solid ${C.grayLight}` }}
     >
       <p

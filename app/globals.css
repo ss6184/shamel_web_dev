@@ -15,6 +15,14 @@
   --color-lime-dim: #3a6e0a;
 }
 
+:root {
+  --bg: #e3f8c0;
+  --navy: #0F172A;
+  --gray: #475569;
+  --gray-light: #E2E8F0;
+  --gray-x-light: #F8FAFC;
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
 }

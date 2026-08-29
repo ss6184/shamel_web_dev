@@ -1,11 +1,12 @@
 "use client";
 
-import { C, SKILLS } from "@/data";
-import SectionDivider from "./SectionDivider";
+import { C, SKILLS } from "../../data";
+import SectionDivider from "../SectionDivider";
+import styles from "./Skills.module.css";
 
 export default function Skills() {
   return (
-    <section id="skills" className="px-6 py-24 max-w-6xl mx-auto">
+    <section id="skills" className={`${styles.section} px-6 py-24 max-w-6xl mx-auto`}>
       <SectionDivider label="05 — Skills" />
       <div className="grid gap-12 md:grid-cols-2">
         {Object.entries(SKILLS).map(([category, items]) => (

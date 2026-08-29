@@ -1,36 +1,26 @@
-"use client";
-
-import { C } from "@/data";
-import Nav from "./src/components/Nav";
-import Hero from "./src/components/Hero";
-import Experience from "./src/components/Experience";
+import Contact from "./src/components/Contact";
 import Education from "./src/components/Education";
+import Experience from "./src/components/Experience";
+import Footer from "./src/components/Footer";
+import Hero from "./src/components/Hero";
+import Nav from "./src/components/Nav";
 import Projects from "./src/components/Projects";
 import Skills from "./src/components/Skills";
-import Contact from "./src/components/Contact";
-import Footer from "./src/components/Footer";
+import { C } from "./src/data";
 
-export default function App() {
+const sections = [Experience, Education, Projects, Skills, Contact];
+
+export default function Page() {
   return (
     <div style={{ background: C.bg, minHeight: "100vh" }}>
       <Nav />
       <main>
         <Hero />
-        <div style={{ borderTop: `1px solid ${C.grayLight}` }}>
-          <Experience />
-        </div>
-        <div style={{ borderTop: `1px solid ${C.grayLight}` }}>
-          <Education />
-        </div>
-        <div style={{ borderTop: `1px solid ${C.grayLight}` }}>
-          <Projects />
-        </div>
-        <div style={{ borderTop: `1px solid ${C.grayLight}` }}>
-          <Skills />
-        </div>
-        <div style={{ borderTop: `1px solid ${C.grayLight}` }}>
-          <Contact />
-        </div>
+        {sections.map((Section) => (
+          <div key={Section.name} style={{ borderTop: `1px solid ${C.grayLight}` }}>
+            <Section />
+          </div>
+        ))}
       </main>
       <Footer />
     </div>

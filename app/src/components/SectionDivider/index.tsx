@@ -1,8 +1,9 @@
-import { C } from "@/data";
+import { C } from "../../data";
+import styles from "./SectionDivider.module.css";
 
 export default function SectionDivider({ label }: { label: string }) {
   return (
-    <div className="flex items-center gap-4 mb-16">
+    <div className={`${styles.divider} flex items-center gap-4 mb-16`}>
       <span
         style={{
           fontFamily: "var(--font-mono)",

@@ -1,6 +1,9 @@
+"use client";
+
 import { useState } from "react";
-import { C, PROJECTS, type Project } from "@/data";
-import SectionDivider from "./SectionDivider";
+import { C, PROJECTS, type Project } from "../../data";
+import SectionDivider from "../SectionDivider";
+import styles from "./Projects.module.css";
 
 function ProjectCard({ project }: { project: Project }) {
   const [hovered, setHovered] = useState(false);
@@ -61,7 +64,7 @@ function ProjectCard({ project }: { project: Project }) {
 
 export default function Projects() {
   return (
-    <section id="projects" className="px-6 py-24 max-w-6xl mx-auto">
+    <section id="projects" className={`${styles.section} px-6 py-24 max-w-6xl mx-auto`}>
       <SectionDivider label="04 — Projects" />
       <div
         className="grid gap-px"
