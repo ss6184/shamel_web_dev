@@ -1,0 +1,89 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+model Users {
+  id        Int      @id @default(autoincrement())
+  name      String?
+  email     String   @unique
+  password  String
+  introduction String?
+  role      String   @default("user")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  projects Projects[] 
+  experiences Experiences[]
+  skills Skills[]
+  educations Educations[]
+  contacts Contacts[]
+}
+
+model Contacts {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String
+  message   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  usersId   Int
+  users     Users    @relation(fields: [usersId], references: [id])
+}
+
+model Educations {
+  id          Int      @id @default(autoincrement())
+  degree      String
+  institution String
+  certificate  Json?
+  year        Int?
+  university   String?
+  startDate   Int
+  endDate     Int
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  usersId     Int
+  users       Users    @relation(fields: [usersId], references: [id])
+}
+
+model Experiences {
+  id          Int      @id @default(autoincrement())
+  title    String
+  company     String
+  startDate   Int
+  endDate     Int
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  usersId     Int
+  users       Users    @relation(fields: [usersId], references: [id])
+}
+
+model Skills {
+  id        Int      @id @default(autoincrement())
+  name      String
+  description String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  usersId   Int
+  users     Users    @relation(fields: [usersId], references: [id])
+}
+
+model Projects {
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String
+  link        String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  usersId     Int
+  users       Users    @relation(fields: [usersId], references: [id])
+}
+

@@ -1,11 +1,19 @@
 "use client";
 
 import { useState } from "react";
-import { C, PROJECTS, type Project } from "../../data";
+import type { getPortfolioData } from "@/lib/actions/portfolio";
+import { C } from "../../data";
 import SectionDivider from "../SectionDivider";
 import styles from "./Projects.module.css";
 
-function ProjectCard({ project }: { project: Project }) {
+type PortfolioUser = NonNullable<Awaited<ReturnType<typeof getPortfolioData>>>;
+type ProjectCardItem = PortfolioUser["projects"][number];
+
+type ProjectsProps = {
+  projects?: PortfolioUser["projects"];
+};
+
+function ProjectCard({ project }: { project: ProjectCardItem }) {
   const [hovered, setHovered] = useState(false);
 
   return (
@@ -44,7 +52,7 @@ function ProjectCard({ project }: { project: Project }) {
             letterSpacing: "0.05em",
           }}
         >
-          {project.tag}
+          {project.link ?? "Project"}
         </p>
       </div>
       <p
@@ -56,13 +64,15 @@ function ProjectCard({ project }: { project: Project }) {
           flex: 1,
         }}
       >
-        {project.desc}
+        {project.description}
       </p>
     </div>
   );
 }
 
-export default function Projects() {
+export default function Projects({ projects }: ProjectsProps) {
+  const items = projects ?? [];
+
   return (
     <section id="projects" className={`${styles.section} px-6 py-24 max-w-6xl mx-auto`}>
       <SectionDivider label="04 — Projects" />
@@ -74,8 +84,8 @@ export default function Projects() {
           background: C.grayLight,
         }}
       >
-        {PROJECTS.map((project, i) => (
-          <ProjectCard key={i} project={project} />
+        {items.map((project, i) => (
+          <ProjectCard key={project.id ?? i} project={project} />
         ))}
       </div>
     </section>
