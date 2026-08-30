@@ -1,0 +1,9 @@
+.section { isolation: isolate; }
+.meta, .location, .company, .point { color: var(--gray); font-family: var(--font-body); }
+.meta { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .05em; }
+.location { font-family: var(--font-mono); font-size: .65rem; margin-top: 2px; opacity: .7; }
+.role { color: var(--navy); font-family: var(--font-display); font-size: 1.4rem; font-weight: 400; }
+.company { font-size: .875rem; margin-top: 2px; }
+.toggle { display: inline-block; font-family: var(--font-mono); font-size: 1.1rem; margin-top: 6px; transition: transform .3s, color .2s; }
+.bullet { color: var(--navy); font-family: var(--font-mono); font-size: .75rem; margin-top: 3px; }
+.point { font-size: .9rem; line-height: 1.75; }
