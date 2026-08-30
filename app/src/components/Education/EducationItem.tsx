@@ -9,9 +9,9 @@ type EducationItemProps = {
 };
 
 export default function EducationItem({ item, last }: EducationItemProps) {
-  const period = item.startDate && item.endDate
-    ? `${new Date(item.startDate).getFullYear()} – ${new Date(item.endDate).getFullYear()}`
-    : "Current";
+  const startYear = typeof item.startDate === "number" ? item.startDate : new Date(item.startDate).getFullYear();
+  const endYear = typeof item.endDate === "number" ? item.endDate : item.endDate ? new Date(item.endDate).getFullYear() : "Present";
+  const period = item.startDate && item.endDate ? `${startYear} – ${endYear}` : "Current";
 
   return <article className="py-8 flex flex-col md:flex-row md:items-start gap-2 md:gap-8" style={{ borderBottom: last ? "none" : "1px solid var(--gray-light)" }}>
     <div className="md:w-44 shrink-0"><p className={styles.meta}>{period}</p><p className={styles.location}>{item.institution}</p></div>

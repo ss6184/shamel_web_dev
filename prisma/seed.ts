@@ -36,6 +36,7 @@ async function main() {
           {
             title: "Technical Support",
             company: "DAZ Training Center",
+            description:"Assisted with computer and technical support for staff and trainees.",
             startDate: 2026,
             endDate: 2026,
           },
