@@ -1,19 +1,16 @@
-"use server"
-
-import { Divider } from "@mui/material";
-import Contact from "./src/components/Contact";
-import Education from "./src/components/Education";
-import Experience from "./src/components/Experience";
-import Footer from "./src/components/Footer";
-import Hero from "./src/components/Hero";
-import Nav from "./src/components/Nav";
-import Projects from "./src/components/Projects";
-import Skills from "./src/components/Skills";
-import { C } from "./src/data";
+import Contact from "@/components/Contact";
+import Education from "@/components/Education";
+import Experience from "@/components/Experience";
+import Footer from "@/components/Footer";
+import Hero from "@/components/Hero";
+import Nav from "@/components/Nav";
+import Projects from "@/components/Projects";
+import Skills from "@/components/Skills";
+import { C } from "@/data";
 import { getPortfolioData } from "@/lib/actions/portfolio";
 
 export default async function App() {
-  const userEmail = "shamelbenaldo12@gmail.com ";
+  const userEmail = "shamelbenaldo12@gmail.com";
   const userPortfolio = await getPortfolioData(userEmail);
 
   return (
@@ -29,4 +26,5 @@ export default async function App() {
       <Footer />
     </div>
   );
+  
 }
